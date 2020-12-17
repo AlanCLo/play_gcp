@@ -1,0 +1,122 @@
+
+
+# create vpn
+
+## Create Gateway 1 
+## (assumes you have vpn-network1 network created)
+gcloud compute target-vpn-gateways create vpn-1 \
+    --network vpn-network1 \
+    --region australia-southeast1
+
+### Create static IP address
+gcloud compute addreses create \
+    --region australia-southeast1 \
+    vpn-1-static-ip
+
+### show static IP address
+gcloud compute addresses list
+(displays addreses)
+
+### create forwarding rules (ESP, UDP 500, UDP 4500)
+gcloud compute forwarding-rules create vpn-1-esp \
+    --region australia-southeast1 \
+    --ip-prototype ESP \
+    --address (static ip) \
+    --target-vpn-gateway vpn1
+
+gcloud compute forwarding-rules create vpn-1-udp500 \
+    --region australia-southeast1 \
+    --ip-prototype UDP \
+    --ports 500 \
+    --address (static ip) \
+    --target-vpn-gateway vpn1
+
+gcloud compute forwarding-rules create vpn-1-udp4444500 \
+    --region australia-southeast1 \
+    --ip-prototype UDP \
+    --ports 4500 \
+    --address (static ip) \
+    --target-vpn-gateway vpn1
+
+
+
+
+## Create Gateway 2 
+## (assumes you have vpn-network2 network created)
+gcloud compute target-vpn-gateways create vpn-2 \
+    --network vpn-network2 \
+    --region australia-southeast1
+gcloud compute addreses create \
+    --region australia-southeast1 \
+    vpn-2-static-ip
+gcloud compute addresses list
+(displays addreses)
+
+gcloud compute forwarding-rules create vpn-2-esp \
+    --region australia-southeast1 \
+    --ip-prototype ESP \
+    --address (static ip) \
+    --target-vpn-gateway vpn2
+
+gcloud compute forwarding-rules create vpn-2-udp500 \
+    --region australia-southeast1 \
+    --ip-prototype UDP \
+    --ports 500 \
+    --address (static ip) \
+    --target-vpn-gateway vpn2
+
+gcloud compute forwarding-rules create vpn-2-udp4500 \
+    --region australia-southeast1 \
+    --ip-prototype UDP \
+    --ports 4500 \
+    --address (static ip) \
+    --target-vpn-gateway vpn2
+
+## Create VPN tunnels
+
+### Create VPN tunnel between 1 -> 2
+gcloud compute vpn-tunnels create tunnel1to2 \
+    --peer-address (static IP 2) \
+    --region (network 2 region) \
+    --ike-version 2 \
+    --shared-secret (password) \
+    --target-vpn-gateway vpn-1 \
+    --local-traffic-selector 0.0.0.0/0 \
+    --remote-traffice-selector 0.0.0.0/0
+
+### Create VPN tunnel between 2 -> 1
+gcloud compute vpn-tunnels create tunnel2to1 \
+    --peer-address (static IP 1) \
+    --region (network 1 region) \
+    --ike-version 2 \
+    --shared-secret (SAME password) \
+    --target-vpn-gateway vpn-2 \
+    --local-traffic-selector 0.0.0.0/0 \
+    --remote-traffice-selector 0.0.0.0/0
+
+### Check
+gcloud compute vpn-tunnels list
+(should display both tunnels)
+
+
+
+## Route things
+
+### Route 1 to 2
+gcloud compute routes create route1to2 \
+    --network vpn-network1 \
+    --next-hop-vpn-tunnel tunnel1to2 \
+    --next-hop-vpn-tunnel-region (network 2 region) \
+    --destination-range (network 2 subnet)
+
+### Route 2 to 1
+gcloud compute routes create route2to1 \
+    --network vpn-network2 \
+    --next-hop-vpn-tunnel tunnel2to1 \
+    --next-hop-vpn-tunnel-region (network 1 region) \
+    --destination-range (network 1 subnet)
+
+
+
+
+
