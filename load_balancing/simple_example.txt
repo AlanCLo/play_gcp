@@ -1,0 +1,22 @@
+
+
+* Make servers with app installed and firewall rule.
+* Reservce a static IP address for the load balancer
+* Make a health checker
+* Make target-pool
+
+gcloud compute target-pools create (pool name)
+
+* Add servers to pool
+
+gcloud compute target-pools add-instances (pool name) \
+    --instances server1,server2,... \
+    --instances-zone=(zone)
+
+* Set LB's IP address
+
+gcloud compute forwarding-rules create (rule name) \
+    --region (region) \
+    --ports 80 \
+    --address (static IP)
+    --target-pool (pool name)

@@ -1,0 +1,21 @@
+
+* Create Custom VPC for instances
+* Reserve External IP address for LB
+* Create instances in VPC (with App)
+    * One for /
+    * One for /video
+* Make firewall rules for services
+* Make unmanaged instance group in VPC "main"
+* Make unmanaged instance group in VPC "video"
+* Make Health check HTTP
+* Make HTTP Load balancer
+    * Create Backend service HTTP "main-service", add health check
+    * Create Backend service HTTP "video-service", add health check
+    * Make Host and Path rules
+        Host: *
+        Path: /video/* /video
+        Backend: video
+    * Unmatched goes to "main"
+    * Configure Frontend: Assign static IP address
+
+
