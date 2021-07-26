@@ -1,5 +1,8 @@
 # cloud storage
 
+THINGS TO DO:
+* Make some buckets with different properties/configs
+
 Playing around with cloud storage and gsutils
 
 ```

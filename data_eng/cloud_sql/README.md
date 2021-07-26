@@ -1,5 +1,9 @@
+# Cloud SQL
 
-# gcloud cli
+THINGS TO DO:
+* Make an app that uses a DB
+
+## gcloud cli
 
 ```
 gcloud sql --help
