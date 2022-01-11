@@ -1,5 +1,9 @@
 # Firestore 
 
+"Easily develop rich applications using a fully managed, scalable, and serverless document database."
+
+(Formerly: Datastore)
+
 THINGS TO DO:
 * Make a basic app with the client libraries
 

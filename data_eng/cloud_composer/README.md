@@ -1,5 +1,7 @@
 # Cloud Composer
 
+"A fully managed workflow orchestration service built on Apache Airflow."
+
 Managed Airflow.
 
 Executes DAGs (Directed Acyclic Graphs)
@@ -21,7 +23,7 @@ Executes DAGs (Directed Acyclic Graphs)
 Use case:
 
 * For ELT/ETL
-
+* Hybrid and multi-cloud 
 
 # CLI
 

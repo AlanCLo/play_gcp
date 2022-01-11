@@ -1,5 +1,18 @@
 # cloud storage
 
+"Object storage for companies of all sizes. Store any amount of data. Retrieve it as often as you’d like"
+
+Features
+
+- Different cost tiers
+  - Standard "hot
+  - Nearline (30+ days, backup and long-tail multimedia content)
+  - Coldline storage (low cost, 90+ days, DR)
+  - Archive Storage (lowest cost, 365+ days, Archives)
+
+- Redundancy options
+- 
+
 Playing around with cloud storage and gsutils
 
 THINGS TO DO:

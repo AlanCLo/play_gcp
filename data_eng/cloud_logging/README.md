@@ -1,5 +1,7 @@
 # Cloud logging
 
+"Real-time log management and analysis at enterprise scale."
+
 Managed services for capturing logs
 
 What is
@@ -22,3 +24,10 @@ Using
 
 
 
+Key features
+
+- Logs explorer
+- Custom log ingestion API
+- Alerting on logs
+- Error reporting
+- Cloud Audit logs

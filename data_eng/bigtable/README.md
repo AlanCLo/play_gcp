@@ -1,5 +1,7 @@
 # BigTable
 
+"A fully managed, scalable NoSQL database service for large analytical and operational workloads with up to 99.999% availability."
+
 THINGS TO DO
 * Find some data to upload and do some performance tests
 * Implement a POC for each time series design pattern
@@ -21,12 +23,25 @@ Sparse multi-dimensional arrays.
   * HBase
   * Cassandra
 
+*  Ideal for use cases such as personalization, ad tech, fintech, digital media, and IoT
+
 ## Properties
 
 * Managed service
 * Scales linearly
 * Multi-region HA with cluster
 * Uses HBase API
+* Consistent sub-10ms latency—handle millions of requests per second
+* Seamlessly scale to match your storage needs; no downtime during reconfiguration
+* Designed with a storage engine for machine learning applications leading to better predictions
+* Easily connect to Google Cloud services such as BigQuery or the Apache ecosystem
+
+
+https://cloud.google.com/bigtable
+
+* Cluster resizing without downtime
+* Flexible automated replication to optimise any workload
+
 
 The tables:
 
@@ -68,7 +83,7 @@ In short:
 
 Designing
 
-* You want row keys that distributes evenly aross nodes
+* You want row keys that distributes evenly across nodes
 * Avoid
   * Incremental row keys
   * Low cardinality attributes (a small limit to the range the field can hold/address). Ok only it if is apart of a multi-attribute key at the END
@@ -151,3 +166,6 @@ ALSO:
 
 
 
+Limits
+
+* Row size 100MB

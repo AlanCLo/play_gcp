@@ -1,5 +1,7 @@
 # cloud dataflow
 
+"Unified stream and batch data processing that's serverless, fast, and cost-effective"
+
 Stream and batch processing
 
 Managed Apache Beam Runner
@@ -15,6 +17,9 @@ Characteristics
 * horizontally scalable
 * supports windowing operations
 
+* Autoscaling, dynamic work rebalancing
+* Flexible scheduling and pricing for batch
+* Ready-to-use AI patterns
 
 Use cases:
 
@@ -66,4 +71,4 @@ Typical Troubleshooting Workflow
   * Exceptions in workers
   * Slow running pipelines or no output
 
-  
+

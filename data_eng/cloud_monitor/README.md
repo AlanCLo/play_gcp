@@ -1,5 +1,7 @@
 # Cloud Monitor
 
+"Gain visibility into the performance, availability, and health of your applications and infrastructure."
+
 Monitoring service
 
 TODO

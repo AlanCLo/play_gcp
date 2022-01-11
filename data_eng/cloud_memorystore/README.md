@@ -1,9 +1,20 @@
 # cloud Memorystore
 
+"Reduce latency with scalable, secure, and highly available in-memory service for Redis and Memcached."
+
 Its redis on GCP
 
 And memcache
 
+
+Key features
+
+- Choice of engin
+- Security with IAM
+- Fully Manageed
+- Monitoring
+- HA
+- Migration
 
 # Redis on Memorystore
 

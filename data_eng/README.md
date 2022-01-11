@@ -102,3 +102,7 @@ From: <https://cloud.google.com/certification/guides/data-engineer>
 | 4.4.2 Designing for data and applicatino portability | Multi-cloud, data residency requirements |
 | 4.4.3 Data staging cataloging and discovery | |
 
+
+What is the open source equivalent to a google product (for migration questions)
+https://cloud.google.com/bigquery/docs/best-practices-performance-input
+https://cloud.google.com/architecture/dw2bq/dw-bq-performance-optimization#denormalization
